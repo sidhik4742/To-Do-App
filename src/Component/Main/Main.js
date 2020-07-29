@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import login from "../Login/Login"
 import "./Main.css";
 
 class Main extends Component {
@@ -66,7 +67,9 @@ class Main extends Component {
               <li key={index}>
                 <div className="item-details">
                   <div className="action">
-                    <label>{value}</label>
+                    <div>
+                      <label>{value}</label>
+                    </div>
                     <div className="action-input">
                       <button type="button" onClick={this.decrement}>
                         {" "}

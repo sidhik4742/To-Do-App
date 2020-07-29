@@ -42,20 +42,23 @@
     padding: 5px;
     border-radius: 5px;
     margin-bottom: 2rem;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
 
+}
+.item-details:hover{
+    transform: translateY(-6px);
 }
 .item-details .action{
+    margin: 0 !important;
    display: flex;
-   justify-content: space-between; 
+   justify-content: space-between !important;
    max-width: 35vw;   
-
-}
-.action label{
 
 }
 
 .action-input{
-    margin-left: rem;
+    margin-left: 1rem;
 }
 
 .action button{
@@ -75,9 +78,14 @@
 }
 
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 411px) {
     .to-do-main .search-item{
-        width: 65vw;
+        width: auto;
     }
+    .item-details .action .action-input{
+        display: flex;
+        justify-content: center; 
+        max-width: 35vw;  
+    } 
 
 }
