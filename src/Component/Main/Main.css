@@ -5,29 +5,40 @@
 }
 
 .to-do-main .search-item{
-    border: 1px solid black;
+    border: 1px solid rgba(29, 179, 179, 0.315);
     border-radius: 5px;
     padding: 1rem;
     margin-bottom: 2rem;
     margin-top: 2rem;
     width: 35vw;
     box-shadow: 5px 15px 8px rgba(2, 58, 53, 0.89);
+    
 }
+.search-item span{
+    display: flex;
+    justify-content: center;
+}
+.search-item i{
+    color: rgba(29, 179, 179, 0.315);
+    /* position: absolute;
+    top: 24px;
+*/}
 
-.search-item input{
+.search-item input {
     height: 25px;
-    width: 17em;
+    width: auto;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid rgba(2, 58, 53, 0.89);
+    border-bottom: 1px solid rgba(29, 179, 179, 0.315);
     
     /* margin-left: 1.9rem; */
 }
 .search-item input:focus{
     outline: none;
+}
+.search-item input::placeholder{
+    color: rgba(2, 58, 53, 0.89);
 }
 .search-item button{
     margin-top: 1rem;
@@ -37,23 +48,31 @@
     padding: 0.5em;
     
 }
+.item-list ul{
+    list-style-type: none;
+}
+
 .item-details{
-    border: 1px solid black;
+    border: 1px solid rgba(29, 179, 179, 0.315);
     padding: 5px;
     border-radius: 5px;
     margin-bottom: 2rem;
     cursor: pointer;
     transition: 0.3s ease-in-out;
+    box-shadow: 5px 15px 8px rgba(2, 58, 53, 0.89);
+    color: rgba(16, 17, 17, 0.719);
 
 }
 .item-details:hover{
     transform: translateY(-6px);
 }
 .item-details .action{
-    margin: 0 !important;
-   display: flex;
-   justify-content: space-between !important;
-   max-width: 35vw;   
+    margin: 0;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 35vw;   
 
 }
 
@@ -62,6 +81,8 @@
 }
 
 .action button{
+    background-color: rgba(201, 211, 211, 0.548);
+    border-radius: 5px;
     margin: 5px;
     padding: 5px;
 }
@@ -70,7 +91,7 @@
     width: 2rem;
     padding: 2px;
     border: none;
-    border-bottom: 1px solid rgba(2, 58, 53, 0.89);   
+    border-bottom: 1px solid rgba(29, 179, 179, 0.712);   
 }
 
 .action input:focus{
@@ -80,12 +101,19 @@
 
 @media screen and (max-width: 411px) {
     .to-do-main .search-item{
-        width: auto;
+        width: 19rem;
+    }
+    .item-details .action{
+        position: relative;
+        align-items: baseline;
     }
     .item-details .action .action-input{
         display: flex;
         justify-content: center; 
-        max-width: 35vw;  
+        align-items: center;
+        position: absolute;
+        left: 11rem;
     } 
+    
 
 }
