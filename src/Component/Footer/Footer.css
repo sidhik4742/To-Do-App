@@ -1,28 +1,21 @@
 .footer{
+    display: flex;
+    justify-content: center;
     margin: 0;
     padding-bottom: 1rem;
-    position: absolute;
+    /* position: absolute; */
     bottom: 0;
 }
 
 .footer p{
-    color: rgba(2, 17, 27, 0.582);
+    color: rgba(39, 13, 13, 0.815);
     text-align: center;
     font-size: x-large;
 }
 .footer p a{
     text-decoration: none;
-    color: rgba(59, 177, 255, 0.685);
+    color: rgba(170, 22, 22, 0.664);
 }
 .footer p a:hover{
-    color: rgba(59, 177, 255, 0.425);
-}
-
-@media only screen and (max-width: 576px) { 
-    .footer p{
-        color: rgba(12, 100, 158, 0.616);
-    }
-    .footer p a{
-        color: rgba(39, 151, 226, 0.719);
-    }
+    color: rgba(39, 13, 13, 0.815);
 }

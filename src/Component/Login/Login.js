@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
-import axios from "axios";
+import Axios from "axios";
 import "./Login.css";
 
 function Login(props) {
@@ -11,12 +11,12 @@ function Login(props) {
 
   // console.log(items);
 
-
   const [profilePic, setProfilePic] = useState(); //profile picture change
+
   const uploadImage = (event) => {
     console.log("Upload image");
     let type = event.target.files[0].type;
-    if (type == "image/jpeg" || type == "image/jpg") {
+    if (type === "image/jpeg" || type === "image/jpg") {
       setProfilePic(URL.createObjectURL(event.target.files[0]));
     }
   };
@@ -31,9 +31,10 @@ function Login(props) {
     // console.log(props.state.password);
   };
 
-  const loginButton = async () => { //send user name and password  to server
+  const loginButton = async () => {
+    //send user name and password  to server
     console.log("Button clicked");
-    await axios({
+    await Axios({
       method: "post",
       url: "http://localhost:3001/todoapp/login",
       headers: {
@@ -45,7 +46,8 @@ function Login(props) {
         Token: "123",
       },
     })
-      .then((response) => {  //clearing the user name and password from input field
+      .then((response) => {
+        //clearing the user name and password from input field
         // props.setState({
         //   userName: "",
         //   password: "",
@@ -53,10 +55,10 @@ function Login(props) {
         // console.log(response.data);
         if (response.data.Token === "123") {
           console.log("success");
-          const itemList = response.data.items
+          const itemList = response.data.items;
           // console.log(itemList);
-          setItems(itemList);  //data from server is store to state
-          sessionStorage.setItem('itemList', JSON.stringify(itemList));
+          setItems(itemList); //data from server is store to state
+          sessionStorage.setItem("itemList", JSON.stringify(itemList));
           history.push("/todoapp/main");
         }
       })
@@ -68,6 +70,9 @@ function Login(props) {
     <div className="login">
       <main>
         <form className="form">
+          <div>
+            <h1>Login Page</h1>
+          </div>
           <div className="img-div">
             <label htmlFor="uploadImage">
               <img
@@ -96,7 +101,7 @@ function Login(props) {
               type="text"
               name="userName"
               onChange={changeHandler}
-              placeholder="user name"
+              placeholder="User name"
             />
           </div>
           <div>
@@ -107,7 +112,7 @@ function Login(props) {
               type="password"
               name="password"
               onChange={changeHandler}
-              placeholder="password"
+              placeholder="Password"
             />
           </div>
           <div className="btn-div">
@@ -116,6 +121,11 @@ function Login(props) {
             </button>
           </div>
         </form>
+        <div className="register">
+          <p>
+            or <br /> New user <Link to="/todoapp/register">Register here</Link>
+          </p>
+        </div>
         <div className="temsService">
           <p>By Registering, | accept the</p>
           <a href="#"> Terms of Service </a> <span>and </span>

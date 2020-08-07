@@ -1,0 +1,67 @@
+.registerComponent {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.registerComponent main {
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 5px 20px 8px rgba(91, 48, 48, 0.815);
+}
+.registerForm {
+  padding: 1rem;
+}
+.registerForm h1 {
+  text-align: center;
+  margin: 10px;
+  color: rgba(20, 7, 7, 0.616);
+}
+.registerForm input {
+  position: relative;
+  padding: 5px;
+  margin: 5px;
+  border-style: hidden;
+  background-color: transparent;
+  font-size: 1.5em;
+  border-bottom: 1px solid black;
+}
+.registerForm input:focus {
+  outline: none;
+}
+.registerForm input::placeholder {
+  color: rgba(170, 22, 22, 0.664);
+}
+.registerForm .btn-div {
+  text-align: center;
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+}
+.registerForm button {
+  margin: 1rem 0 0 0;
+  padding: 5px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-size: 1.5em;
+  border-radius: 10px;
+  border-color: rgba(20, 7, 7, 0.616);
+  background-color: rgba(91, 48, 48, 0.815);
+  box-shadow: 5px 10px 8px rgba(91, 48, 48, 0.815);
+}
+.registerForm button:hover {
+  background-color: rgba(252, 132, 132, 0.562);
+  border: 1px solid black;
+}
+
+.registerForm button:active {
+  outline: none;
+  background-color: rgba(91, 48, 48, 0.815);
+}
+
+@media only screen and (max-width: 576px) {
+    .registerForm input {
+      width: 14rem !important;
+    }
+    
+  }

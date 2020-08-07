@@ -2,10 +2,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Lobster', cursive;
 }
 
 body{
-  background-image: radial-gradient(circle ,rgba(41, 245, 245, 0.726),rgba(10, 10, 10, 0.692));
+  background-image: radial-gradient(circle ,rgba(255, 0, 0, 0.801),rgba(10, 10, 10, 0.692));
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -13,4 +14,5 @@ body{
   height: auto !important;
   /* max-height: auto !important; */
   position: relative;
+  /* color: white; */
 }

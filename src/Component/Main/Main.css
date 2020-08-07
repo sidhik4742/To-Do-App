@@ -1,7 +1,6 @@
 .to-do-main{
  display: flex;
  justify-content: center;
- 
 }
 
 .to-do-main .search-item{
@@ -46,6 +45,7 @@
     margin-left: auto;
     margin-right: auto;
     padding: 0.5em;
+    background-color: rgba(53, 3, 3, 0.548);
     
 }
 .item-list ul{
@@ -60,7 +60,7 @@
     cursor: pointer;
     transition: 0.3s ease-in-out;
     box-shadow: 5px 15px 8px rgba(2, 58, 53, 0.89);
-    color: rgba(16, 17, 17, 0.719);
+    /* color: rgba(255, 255, 255, 0.719); */
 
 }
 .item-details:hover{
