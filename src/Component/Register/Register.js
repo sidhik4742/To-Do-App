@@ -22,8 +22,8 @@ function Register() {
     event.preventDefault();
     if (
       registerUser.password === registerUser.Cpassword &&
-      registerUser.password != "" &&
-      registerUser.emailOrPhone != ""
+      registerUser.password !== "" &&
+      registerUser.emailOrPhone !== ""
     ) {
       console.log("form submitting...");
       Axios({
@@ -35,12 +35,12 @@ function Register() {
         data: registerUser,
       })
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           alert(response.data);
           history.push("/todoapp");
         })
         .catch((error) => {
-          console.log(`Error :${error}`);
+          // console.error(`Error :${error}`);
         });
     } else {
       alert("Please fill the form");

@@ -18,7 +18,7 @@ function Main(props) {
     let newItems = [...copyItems];
     // console.log(newItems);
     newItems = newItems.filter((item) => {
-      return item.itemName.toLowerCase().search(searchData.toLowerCase()) != -1;
+      return item.itemName.toLowerCase().search(searchData.toLowerCase()) !== -1;
     });
     setItems(newItems);
     // console.log("filter result ");
