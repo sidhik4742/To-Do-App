@@ -40,7 +40,7 @@ function Register() {
           history.push("/todoapp");
         })
         .catch((error) => {
-          // console.error(`Error :${error}`);
+          // console.error(`Error :${error}`);//
         });
     } else {
       alert("Please fill the form");
