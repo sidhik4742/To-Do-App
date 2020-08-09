@@ -10,8 +10,15 @@ function Register() {
     emailOrPhone: "",
     password: "",
     Cpassword: "",
+    model: "",
   });
-  //   console.log(registerUser);
+//   console.log(registerUser);
+  const modelSelection = (event) => {
+    let index = event.target.selectedIndex;
+    let optionElement = event.target.childNodes[index].value;
+    // console.log(optionElement);
+    setRegisterUser({ ...registerUser, model: optionElement });
+  };
   const changeHandler = (event) => {
     setRegisterUser({
       ...registerUser,
@@ -97,6 +104,19 @@ function Register() {
               onChange={changeHandler}
               placeholder="Confirm password"
             />
+          </div>
+          <div>
+            <span>
+              <i className="fa fa-list fa-2x" aria-hidden="true"></i>
+            </span>
+            <select className="model" onChange={modelSelection}>
+              <option value="" key="0">
+                Choose model...
+              </option>
+              <option value="stationeryItems" key="1">
+                stationery Items
+              </option>
+            </select>
           </div>
           <div className="btn-div">
             <button type="submit">Sign Up</button>
