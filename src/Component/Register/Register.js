@@ -12,7 +12,7 @@ function Register() {
     Cpassword: "",
     model: "",
   });
-//   console.log(registerUser);
+  //   console.log(registerUser);
   const modelSelection = (event) => {
     let index = event.target.selectedIndex;
     let optionElement = event.target.childNodes[index].value;
@@ -30,7 +30,8 @@ function Register() {
     if (
       registerUser.password === registerUser.Cpassword &&
       registerUser.password !== "" &&
-      registerUser.emailOrPhone !== ""
+      registerUser.emailOrPhone !== "" &&
+      registerUser.model !== ""
     ) {
       console.log("form submitting...");
       Axios({
