@@ -1,7 +1,5 @@
 .footer{
     background-color: rgba(9, 9, 9, 0.842);
-    /* display: flex; */
-    /* justify-content: center; */
     margin: 0;
     padding-bottom: 1rem;
     position: fixed;
@@ -14,7 +12,7 @@
     padding-top: 1rem;
     color: rgba(112, 12, 12, 0.815);
     text-align: center;
-    font-size: x-large;
+    font-size: medium;
 }
 .footer p a{
     text-decoration: none;

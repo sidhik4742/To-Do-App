@@ -3,6 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 2rem;
 }
 .login main {
   border: 1px solid black;
@@ -10,7 +11,7 @@
   box-shadow: 5px 20px 8px rgba(91, 48, 48, 0.815);
 }
 .form {
-  padding: 1rem;
+  padding: 0.8rem;
 }
 .login h1 {
   text-align: center;
@@ -123,6 +124,6 @@ span {
   }
   .temsService a {
     color: rgba(170, 22, 22, 0.664);
-    font-size: larger;
+    font-size: x-small;
   }
 }

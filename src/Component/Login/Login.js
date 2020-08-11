@@ -43,7 +43,6 @@ function Login(props) {
       data: {
         userName: props.state.userName,
         password: props.state.password,
-        Token: "123",
       },
     })
       .then((response) => {
@@ -52,15 +51,15 @@ function Login(props) {
         //   userName: "",
         //   password: "",
         // });
-        // console.log(response.data);
-        if (response.data.Token === "123") {
+        console.log(response.data);
+        // if (response.data.Token === "123") {
           console.log("success");
-          const itemList = response.data.items;
+          // const itemList = response.data.items;
           // console.log(itemList);
-          setItems(itemList); //data from server is store to state
-          sessionStorage.setItem("itemList", JSON.stringify(itemList));
-          history.push("/todoapp/main");
-        }
+          // setItems(itemList); //data from server is store to state
+          // sessionStorage.setItem("itemList", JSON.stringify(itemList));
+          // history.push("/todoapp/main");
+        // }
       })
       .catch((error) => {
         console.log(error);
