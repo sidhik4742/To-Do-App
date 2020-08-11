@@ -39,8 +39,12 @@
     margin: 5px;
     background-color: transparent;
     border-style: hidden;
+    border-color: transparent;
     font-size: 1.5em;
     width: 300px;
+}
+.registerForm .model select:active{
+    outline: none;
 }
 .registerForm .btn-div {
   text-align: center;
