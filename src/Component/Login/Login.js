@@ -51,15 +51,24 @@ function Login(props) {
         //   userName: "",
         //   password: "",
         // });
-        console.log(response.data);
-        // if (response.data.Token === "123") {
-          console.log("success");
-          // const itemList = response.data.items;
-          // console.log(itemList);
-          // setItems(itemList); //data from server is store to state
-          // sessionStorage.setItem("itemList", JSON.stringify(itemList));
-          // history.push("/todoapp/main");
-        // }
+        // console.log(response.data);
+        if (response.data.auth) {
+          let token = response.data.Token;
+          Axios({
+            method: "get",
+            url: "http://localhost:3001/todoapp/display",
+            headers: {
+              authorization: token,
+            },
+          }).then((response) => {
+            console.log("success");
+            console.log(response.data);
+            const itemList = response.data;
+            setItems(itemList);
+            sessionStorage.setItem("itemList", JSON.stringify(itemList));
+            history.push("/todoapp/main");
+          });
+        }
       })
       .catch((error) => {
         console.log(error);
