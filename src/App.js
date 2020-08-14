@@ -25,6 +25,7 @@ function App() {
         </Route>
         <Route path="/todoapp/main">
           <Main items={items} setItems={setItems} />
+          <Footer />
         </Route>
         <Route path="/todoapp/register">
           <Register />

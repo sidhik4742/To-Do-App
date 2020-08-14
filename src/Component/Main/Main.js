@@ -8,8 +8,14 @@ function Main(props) {
   const setItems = props.setItems;
   const [searchItem, setSearchItem] = useState("");
 
-  const searchItemFun = (event) => {
-    console.log("button clicked");
+  // console.log(items);
+  const checkedItemFun = (event) => {
+    // console.log(`${event.target.name}" "${event.target.checked}`);
+    const btnId = parseInt(event.target.dataset.id);
+    // console.log(btnId);
+    let newItems = [...items];
+    newItems[btnId].currentStatus = event.target.checked;
+    setItems(newItems);
   };
   const changeHandler = (event) => {
     let searchData = event.target.value;
@@ -18,7 +24,9 @@ function Main(props) {
     let newItems = [...copyItems];
     // console.log(newItems);
     newItems = newItems.filter((item) => {
-      return item.itemName.toLowerCase().search(searchData.toLowerCase()) !== -1;
+      return (
+        item.itemName.toLowerCase().search(searchData.toLowerCase()) !== -1
+      );
     });
     setItems(newItems);
     // console.log("filter result ");
@@ -46,7 +54,6 @@ function Main(props) {
   return (
     <div className="to-do-main">
       <main>
-        .
         <div className="search-item">
           <form>
             <div>
@@ -62,10 +69,6 @@ function Main(props) {
                 />
               </span>
             </div>
-            <button type="button" onClick={searchItemFun}>
-              {" "}
-              Search Item{" "}
-            </button>
           </form>
         </div>
         <div className="item-list">
@@ -77,22 +80,44 @@ function Main(props) {
                     <div>
                       <label>{item.itemName}</label>
                     </div>
-                    <div className="action-input">
-                      <button type="button" data-id={index} onClick={decrement}>
-                        {" "}
-                        -{" "}
-                      </button>
-                      <input
-                        type="text"
-                        value={item.quantity}
-                        onChange={changeHandler}
-                        disabled
-                      />
-                      <button type="button" data-id={index} onClick={increment}>
-                        {" "}
-                        +{" "}
-                      </button>
-                    </div>
+                    {!item.currentStatus? (
+                      <div>
+                        <input
+                          type="checkbox"
+                          data-id={index}
+                          id={item.itemName}
+                          name={item.itemName}
+                          value={item.itemName}
+                          checked={item.currentStatus}
+                          onChange={checkedItemFun}
+                        />
+                      </div>
+                    ) : (
+                      <div className="action-input">
+                        <button
+                          type="button"
+                          data-id={index}
+                          onClick={decrement}
+                        >
+                          {" "}
+                          -{" "}
+                        </button>
+                        <input
+                          type="text"
+                          value={item.quantity}
+                          onChange={changeHandler}
+                          disabled
+                        />
+                        <button
+                          type="button"
+                          data-id={index}
+                          onClick={increment}
+                        >
+                          {" "}
+                          +{" "}
+                        </button>
+                      </div>
+                    )}
                   </div>
                   <div>
                     <p>Rate/kg: {item.rate}</p>
