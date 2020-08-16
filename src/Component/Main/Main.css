@@ -1,16 +1,23 @@
 .to-do-main{
  display: flex;
  justify-content: center;
+ position: relative;
+ color: whitesmoke;
 }
 
+.to-do-main .creatItem{
+    position: fixed;
+    top: 5px;
+    right: 5px;
+}
 .to-do-main .search-item{
-    border: 1px solid rgba(29, 179, 179, 0.315);
+    border: 1px solid rgba(53, 3, 3, 0.548);
     border-radius: 5px;
     padding: 1rem;
     margin-bottom: 2rem;
     margin-top: 2rem;
     width: 35vw;
-    box-shadow: 5px 15px 8px rgba(2, 58, 53, 0.89);
+    box-shadow: 5px 15px 8px rgba(53, 3, 3, 0.548);
     
 }
 .search-item span{
@@ -18,7 +25,7 @@
     justify-content: center;
 }
 .search-item i{
-    color: rgba(29, 179, 179, 0.315);
+    color: rgba(53, 3, 3, 0.548);
     /* position: absolute;
     top: 24px;
 */}
@@ -29,7 +36,7 @@
     display: block;
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid rgba(29, 179, 179, 0.315);
+    border-bottom: 1px solid rgba(53, 3, 3, 0.548);
     
     /* margin-left: 1.9rem; */
 }
@@ -37,7 +44,7 @@
     outline: none;
 }
 .search-item input::placeholder{
-    color: rgba(2, 58, 53, 0.89);
+    color: whitesmoke;
 }
 .search-item button{
     margin-top: 1rem;
@@ -53,13 +60,13 @@
 }
 
 .item-details{
-    border: 1px solid rgba(29, 179, 179, 0.315);
+    border: 1px solid rgba(53, 3, 3, 0.548);
     padding: 5px;
     border-radius: 5px;
     margin-bottom: 2rem;
     cursor: pointer;
     transition: 0.3s ease-in-out;
-    box-shadow: 5px 15px 8px rgba(2, 58, 53, 0.89);
+    box-shadow: 5px 15px 8px rgba(53, 3, 3, 0.548);
     /* color: rgba(255, 255, 255, 0.719); */
 
 }
@@ -104,6 +111,7 @@
         width: 19rem;
     }
     .item-details .action{
+        display: flex;
         position: relative;
         align-items: baseline;
     }
@@ -114,6 +122,11 @@
         position: absolute;
         left: 11rem;
     } 
+    .item-details .action .checkbox{
+        position: absolute;
+        top: 18px;
+        left: 255px;
+    }
     
 
 }

@@ -1,5 +1,5 @@
 .footer{
-    background-color: rgba(9, 9, 9, 0.842);
+    background-color: rgba(9, 9, 9, 1);
     margin: 0;
     padding-bottom: 1rem;
     position: fixed;
@@ -10,7 +10,7 @@
 
 .footer p{
     padding-top: 1rem;
-    color: rgba(112, 12, 12, 0.815);
+    color: whitesmoke;
     text-align: center;
     font-size: medium;
 }
@@ -19,5 +19,5 @@
     color: rgba(112, 12, 12, 0.815);
 }
 .footer p a:hover{
-    color: rgba(179, 54, 54, 0.815);
+    color: whitesmoke;;
 }
