@@ -9,7 +9,7 @@ function Main(props) {
   const copyItems = JSON.parse(sessionStorage.getItem("itemList"));
   const setItems = props.setItems;
   const [searchItem, setSearchItem] = useState("");
-  const [selectItem, setSelectItem] = useState({});
+  const [selectItem, setSelectItem] = useState();
   const [showHide, setShowHide] = useState(false);
 
   // console.log(items);
@@ -18,7 +18,11 @@ function Main(props) {
     // console.log(event.target);
     const selectedItemId = parseInt(event.target.dataset.selecteditem);
     // console.log(selectedItemId);
-    setSelectItem(items[selectedItemId]);
+    setSelectItem({
+      selectedItemId: selectedItemId,
+      itemName: items[selectedItemId].itemName,
+      rate: items[selectedItemId].rate,
+    });
     setShowHide(true);
   };
 
@@ -150,7 +154,9 @@ function Main(props) {
             {showHide && (
               <ItemEditing
                 selectItem={selectItem}
+                setSelectItem={setSelectItem}
                 items={items}
+                setItems={setItems}
                 setShowHide={setShowHide}
               />
             )}
