@@ -46,11 +46,6 @@ function Login(props) {
       },
     })
       .then((response) => {
-        //clearing the user name and password from input field
-        // props.setState({
-        //   userName: "",
-        //   password: "",
-        // });
         console.log(response.data);
         if (!response.data.auth) {
           alert(response.data.message);

@@ -1,14 +1,20 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router";
 import "./Header.css";
 import ItemCreating from "../Main/ItemCreating";
 import Navbar from "./Navbar";
 
 function Header(props) {
   // console.log(props);
+  const history = useHistory();
   const items = props.items;
   const setItems = props.setItems;
   const [showHideCreateItem, setShowHideCreateItem] = useState(false);
   const [navbar, setNavbar] = useState(false);
+
+  const logOutAction = () => {
+    history.push("/todoapp");
+  };
   const navbarOpen = () => {
     console.log("show menu");
     setNavbar(true);
@@ -25,7 +31,7 @@ function Header(props) {
           <ItemCreating
             setShowHideCreateItem={setShowHideCreateItem}
             setItems={setItems}
-            items={items}
+            items={items}            
           />
         )}
       </div>
@@ -51,7 +57,7 @@ function Header(props) {
           <div className="menuList">
             <li>option</li>
             <li>option</li>
-            <li>option</li>
+            <li onClick={logOutAction}>Log Out</li>
           </div>
         </div>
       </div>

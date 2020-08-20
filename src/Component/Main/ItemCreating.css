@@ -1,0 +1,51 @@
+.creatItemScreen {
+  width: 300px;
+  height: auto;
+  background-color: rgba(36, 33, 33, 1) !important;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.creatItemScreen label {
+  font-size: 20px;
+}
+
+.creatItemScreen input {
+  width: auto;
+  position: relative;
+  padding: 5px;
+  margin: 5px;
+  border-style: hidden;
+  background-color: transparent;
+  font-size: 20px;
+  border-bottom: 1px solid black;
+  color: white;
+}
+.creatItemScreen input:focus {
+  outline: none;
+}
+.creatItemScreen .rateSelector{
+    font-size: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.creatItemScreen button {
+  margin: 1rem 0 1rem 0;
+  padding: 5px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-size: 1.5em;
+  border-radius: 10px;
+  border-color: rgba(20, 7, 7, 0.616);
+  background-color: rgba(91, 48, 48, 0.815);
+  box-shadow: 5px 10px 8px rgba(91, 48, 48, 0.815);
+}

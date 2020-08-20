@@ -13,7 +13,7 @@ function Main(props) {
   const [showHide, setShowHide] = useState(false);
 
   // console.log(items);
-  // console.log(selectItem);
+  // console.log(copyItems);
   const editItemFun = (event) => {
     // console.log(event.target);
     const selectedItemId = parseInt(event.target.dataset.selecteditem);
@@ -53,17 +53,31 @@ function Main(props) {
     const btnId = parseInt(event.target.dataset.id);
     let newItems = [...items];
     // console.log(newItems);
-    newItems[btnId].quantity = newItems[btnId].quantity + 1;
+    if (
+      newItems[btnId].type === "Rate/kg" ||
+      newItems[btnId].type === "Rate/li"
+    ) {
+      newItems[btnId].quantity = newItems[btnId].quantity + 0.1;
+    } else if (newItems[btnId].type === "Rate/qty") {
+      newItems[btnId].quantity = newItems[btnId].quantity + 1;
+    }
     setItems(newItems);
     // console.log(items);
   };
   const decrement = (event) => {
     const btnId = parseInt(event.target.dataset.id);
     let newItems = [...items];
-    if (newItems[btnId].quantity <= 0) {
+    if (newItems[btnId].quantity < 0.1) {
       newItems[btnId].quantity = 0;
     } else {
-      newItems[btnId].quantity = newItems[btnId].quantity - 1;
+      if (
+        newItems[btnId].type === "Rate/kg" ||
+        newItems[btnId].type === "Rate/li"
+      ) {
+        newItems[btnId].quantity = newItems[btnId].quantity - 0.1;
+      } else if (newItems[btnId].type === "Rate/qty") {
+        newItems[btnId].quantity = newItems[btnId].quantity + 1;
+      }
     }
     setItems(newItems);
   };
@@ -71,7 +85,7 @@ function Main(props) {
   return (
     <div>
       <div>
-        <Header items={items} setItems={setItems}/>
+        <Header items={items} setItems={setItems} />
       </div>
       <div className="to-do-main">
         <main>
@@ -127,7 +141,7 @@ function Main(props) {
                           </button>
                           <input
                             type="text"
-                            value={item.quantity}
+                            value={item.quantity.toFixed(1)}
                             onChange={changeHandler}
                             disabled
                           />
@@ -143,7 +157,9 @@ function Main(props) {
                       )}
                     </div>
                     <div>
-                      <p>Rate/kg: {item.rate}</p>
+                      <p>
+                        {item.type} : {item.rate}
+                      </p>
                     </div>
                   </div>
                 </li>

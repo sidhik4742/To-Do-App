@@ -29,6 +29,7 @@ div.header {
 .header .menuList li {
   margin-right: 2rem;
   color: whitesmoke;
+  cursor: pointer;
 }
 
 

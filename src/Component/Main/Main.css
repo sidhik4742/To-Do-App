@@ -3,6 +3,7 @@
  justify-content: center;
  position: relative;
  color: whitesmoke;
+ font-size: larger;
 }
 
 .to-do-main .creatItem{
@@ -25,18 +26,19 @@
     justify-content: center;
 }
 .search-item i{
-    color: rgba(53, 3, 3, 0.548);
+    color: rgba(255, 255, 255, 0.836);
     /* position: absolute;
     top: 24px;
 */}
 
 .search-item input {
+    font-size: larger;
     height: 25px;
     width: auto;
     display: block;
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid rgba(53, 3, 3, 0.548);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.692);
     
     /* margin-left: 1.9rem; */
 }
@@ -88,17 +90,19 @@
 }
 
 .action button{
-    background-color: rgba(201, 211, 211, 0.548);
+    background-color: rgba(90, 5, 5, 0.89);
     border-radius: 5px;
     margin: 5px;
     padding: 5px;
+    color: whitesmoke;
 }
 .action input{
+    color: whitesmoke;
     background-color: transparent;
     width: 2rem;
     padding: 2px;
     border: none;
-    border-bottom: 1px solid rgba(29, 179, 179, 0.712);   
+    border-bottom: 1px solid rgba(255, 255, 255, 0.712);   
 }
 
 .action input:focus{
