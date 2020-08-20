@@ -1,11 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Header.css";
 import ItemCreating from "../Main/ItemCreating";
+import Navbar from "./Navbar";
 
-function Header() {
+function Header(props) {
+  // console.log(props);
+  const items = props.items;
+  const setItems = props.setItems;
   const [showHideCreateItem, setShowHideCreateItem] = useState(false);
-  const showMenu = () => {
+  const [navbar, setNavbar] = useState(false);
+  const navbarOpen = () => {
     console.log("show menu");
+    setNavbar(true);
   };
   const creatItem = () => {
     console.log("creat item");
@@ -13,9 +19,14 @@ function Header() {
   };
   return (
     <div>
+      <div>{navbar && <Navbar setNavbar={setNavbar} />}</div>
       <div>
         {showHideCreateItem && (
-          <ItemCreating setShowHideCreateItem={setShowHideCreateItem} />
+          <ItemCreating
+            setShowHideCreateItem={setShowHideCreateItem}
+            setItems={setItems}
+            items={items}
+          />
         )}
       </div>
       <div className="header">
@@ -23,7 +34,7 @@ function Header() {
           <i
             className="fa fa-bars fa-2x"
             aria-hidden="true"
-            onClick={showMenu}
+            onClick={navbarOpen}
           ></i>
         </div>
         <div className="creatItem">

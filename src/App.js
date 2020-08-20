@@ -23,12 +23,12 @@ function App() {
           />
           <Footer />
         </Route>
-        <Route path="/todoapp/main">
-          <Main items={items} setItems={setItems} />
-          <Footer />
-        </Route>
         <Route path="/todoapp/register">
           <Register />
+          <Footer />
+        </Route>
+        <Route path="/todoapp/main">
+          <Main items={items} setItems={setItems} />
           <Footer />
         </Route>
       </Router>

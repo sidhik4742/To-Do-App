@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import login from "../Login/Login";
 import "./Main.css";
 import ItemEditing from "./ItemEditing";
@@ -71,7 +71,7 @@ function Main(props) {
   return (
     <div>
       <div>
-        <Header />
+        <Header items={items} setItems={setItems}/>
       </div>
       <div className="to-do-main">
         <main>

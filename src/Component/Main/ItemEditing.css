@@ -2,7 +2,7 @@
   width: 300px;
   height: auto;
   background-color: rgb(36, 33, 33) !important;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

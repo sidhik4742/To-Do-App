@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./ItemEditing.css";
 
 function ItemEditing(props) {
@@ -11,6 +11,7 @@ function ItemEditing(props) {
   //   console.log(selectItem);
 
   const savedItems = (event) => {
+    event.preventDefault();
     let newItem = [...items];
     newItem[selectItem.selectedItemId].rate = selectItem.rate;
     setItems(newItem);

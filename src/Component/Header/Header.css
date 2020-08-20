@@ -36,6 +36,7 @@ div.header {
   .header .navicon,
   .header .creatItem {
     display: block;
+    position: relative;
   }
   .header .menu {
     display: none;

@@ -51,15 +51,15 @@ function Login(props) {
         //   userName: "",
         //   password: "",
         // });
-        // console.log(response.data);
-        if (response.data.auth) {
+        console.log(response.data);
+        if (!response.data.auth) {
+          alert(response.data.message);
+        } else {
           let token = response.data.Token;
+          Axios.defaults.headers.common["authorization"] = token;
           Axios({
             method: "get",
             url: "http://localhost:3001/todoapp/display",
-            headers: {
-              authorization: token,
-            },
           }).then((response) => {
             console.log("success");
             console.log(response.data);
