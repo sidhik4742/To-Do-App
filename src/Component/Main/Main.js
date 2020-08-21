@@ -6,14 +6,17 @@ import Header from "../Header/Header";
 
 function Main(props) {
   const items = props.items || JSON.parse(sessionStorage.getItem("itemList"));
-  const copyItems = JSON.parse(sessionStorage.getItem("itemList"));
+  const [copyItems, setCopyItems] = useState(
+    JSON.parse(sessionStorage.getItem("itemList"))
+  );
+
   const setItems = props.setItems;
   const [searchItem, setSearchItem] = useState("");
   const [selectItem, setSelectItem] = useState();
   const [showHide, setShowHide] = useState(false);
 
   // console.log(items);
-  // console.log(copyItems);
+  console.log(copyItems);
   const editItemFun = (event) => {
     // console.log(event.target);
     const selectedItemId = parseInt(event.target.dataset.selecteditem);
@@ -31,8 +34,11 @@ function Main(props) {
     const btnId = parseInt(event.target.dataset.id);
     // console.log(btnId);
     let newItems = [...items];
+    let newCopyItem = [...copyItems];
     newItems[btnId].currentStatus = event.target.checked;
+    newCopyItem[btnId].currentStatus = event.target.checked;
     setItems(newItems);
+    setCopyItems(newCopyItem);
   };
   const changeHandler = (event) => {
     let searchData = event.target.value;
@@ -52,21 +58,31 @@ function Main(props) {
   const increment = (event) => {
     const btnId = parseInt(event.target.dataset.id);
     let newItems = [...items];
-    // console.log(newItems);
+    let newCopyItem = [...copyItems];
+    console.log(btnId);
     if (
       newItems[btnId].type === "Rate/kg" ||
       newItems[btnId].type === "Rate/li"
     ) {
       newItems[btnId].quantity = newItems[btnId].quantity + 0.1;
+      newCopyItem[btnId].quantity = newItems[btnId].quantity;
+      newCopyItem[btnId].rate = newItems[btnId].rate;
     } else if (newItems[btnId].type === "Rate/qty") {
       newItems[btnId].quantity = newItems[btnId].quantity + 1;
+      newCopyItem[btnId].quantity = newItems[btnId].quantity;
+      newCopyItem[btnId].rate =
+        copyItems[btnId].rate * copyItems[btnId].quantity;
     }
+    console.log(newCopyItem[btnId].rate);
     setItems(newItems);
+    setCopyItems(newCopyItem);
+
     // console.log(items);
   };
   const decrement = (event) => {
     const btnId = parseInt(event.target.dataset.id);
     let newItems = [...items];
+    let newCopyItem = [...copyItems];
     if (newItems[btnId].quantity < 0.1) {
       newItems[btnId].quantity = 0;
     } else {
@@ -75,11 +91,17 @@ function Main(props) {
         newItems[btnId].type === "Rate/li"
       ) {
         newItems[btnId].quantity = newItems[btnId].quantity - 0.1;
+        newCopyItem[btnId].quantity = newItems[btnId].quantity;
+        newCopyItem[btnId].rate = newItems[btnId].rate;
       } else if (newItems[btnId].type === "Rate/qty") {
-        newItems[btnId].quantity = newItems[btnId].quantity + 1;
+        newItems[btnId].quantity = newItems[btnId].quantity - 1;
+        newCopyItem[btnId].quantity = newItems[btnId].quantity;
+        newCopyItem[btnId].rate =
+          copyItems[btnId].rate * copyItems[btnId].quantity;
       }
     }
     setItems(newItems);
+    setCopyItems(newCopyItem);
   };
 
   return (
@@ -158,7 +180,7 @@ function Main(props) {
                     </div>
                     <div>
                       <p>
-                        {item.type} : {item.rate}
+                        {item.type} : {(item.rate * item.quantity).toFixed(1)}
                       </p>
                     </div>
                   </div>
