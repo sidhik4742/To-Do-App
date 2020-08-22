@@ -31,7 +31,8 @@ function Header(props) {
           <ItemCreating
             setShowHideCreateItem={setShowHideCreateItem}
             setItems={setItems}
-            items={items}            
+            items={items} 
+            setCopyItems={props.setCopyItems}           
           />
         )}
       </div>

@@ -41,7 +41,7 @@
     border-style: hidden;
     border-color: transparent;
     font-size: 1.5em;
-    width: 300px;
+    width: 285px;
 }
 .registerForm .model select:active{
     outline: none;
@@ -74,7 +74,14 @@
 
 @media only screen and (max-width: 576px) {
     .registerForm input {
-      width: 14rem !important;
+      width: 15rem !important;
+    }
+    .registerForm{
+      width: 20rem;
+    }
+    .registerForm .model{
+      width: 230px;
+      
     }
     
   }

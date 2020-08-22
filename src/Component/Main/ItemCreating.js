@@ -3,9 +3,10 @@ import "./ItemCreating.css";
 import Axios from "axios";
 
 function ItemCreating(props) {
-  // console.log(props);
+  console.log(props);
   const items = props.items;
   const setItems = props.setItems;
+  const setCopyItems = props.setCopyItems;
   const setShowHideCreateItem = props.setShowHideCreateItem;
   const [rateType, setRateType] = useState("Rate/kg");
   const [createItem, setCreateItem] = useState({
@@ -15,7 +16,7 @@ function ItemCreating(props) {
     rate: 0,
     type: "Rate/kg",
   });
-  // console.log(createItem);
+  console.log(createItem);
   // console.log(items);
   const changeHandler = (event) => {
     // let newCreateItem = [...createItem];
@@ -42,6 +43,7 @@ function ItemCreating(props) {
             console.log(response.data);
             const itemList = response.data;
             setItems(itemList);
+            setCopyItems(itemList);
             sessionStorage.setItem("itemList", JSON.stringify(itemList));
           })
           .catch((error) => {

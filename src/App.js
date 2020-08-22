@@ -28,7 +28,10 @@ function App() {
           <Footer />
         </Route>
         <Route path="/todoapp/main">
-          <Main items={items} setItems={setItems} />
+          <Main
+            items={items}
+            setItems={setItems}
+          />
           <Footer />
         </Route>
       </Router>

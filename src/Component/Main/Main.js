@@ -6,17 +6,21 @@ import Header from "../Header/Header";
 
 function Main(props) {
   const items = props.items || JSON.parse(sessionStorage.getItem("itemList"));
+  const setItems = props.setItems;
   const [copyItems, setCopyItems] = useState(
     JSON.parse(sessionStorage.getItem("itemList"))
   );
 
-  const setItems = props.setItems;
+  const [calculateItem, setCalculateItem] = useState(
+    JSON.parse(sessionStorage.getItem("itemList"))
+  );
   const [searchItem, setSearchItem] = useState("");
   const [selectItem, setSelectItem] = useState();
   const [showHide, setShowHide] = useState(false);
 
   // console.log(items);
-  console.log(copyItems);
+  // console.log(copyItems);
+  // console.log(calculateItem);
   const editItemFun = (event) => {
     // console.log(event.target);
     const selectedItemId = parseInt(event.target.dataset.selecteditem);
@@ -31,20 +35,21 @@ function Main(props) {
 
   const checkedItemFun = (event) => {
     // console.log(`${event.target.name}" "${event.target.checked}`);
-    const btnId = parseInt(event.target.dataset.id);
+    const checkedId = parseInt(event.target.dataset.id);
+    const checkedIndex = parseInt(event.target.dataset.index);
     // console.log(btnId);
-    let newItems = [...items];
-    let newCopyItem = [...copyItems];
-    newItems[btnId].currentStatus = event.target.checked;
-    newCopyItem[btnId].currentStatus = event.target.checked;
+    let newItems = [...items]; //*? checkedIndex
+    let newCalculateItem = [...calculateItem]; //*? checkedId
+    newItems[checkedIndex].currentStatus = event.target.checked;
+    newCalculateItem[checkedId].currentStatus = event.target.checked;
     setItems(newItems);
-    setCopyItems(newCopyItem);
+    setCalculateItem(newCalculateItem);
   };
   const changeHandler = (event) => {
     let searchData = event.target.value;
     // console.log(searchData)
     setSearchItem((event.target.name = event.target.value));
-    let newItems = [...copyItems];
+    let newItems = [...calculateItem];
     // console.log(newItems);
     newItems = newItems.filter((item) => {
       return (
@@ -57,57 +62,75 @@ function Main(props) {
   };
   const increment = (event) => {
     const btnId = parseInt(event.target.dataset.id);
-    let newItems = [...items];
-    let newCopyItem = [...copyItems];
+    const btnIndex = parseInt(event.target.dataset.index);
     console.log(btnId);
+    console.log(btnIndex);
+    let newItems = [...items]; //*? btnIndex
+    let newCalculateItem = [...calculateItem]; //*? btnId
+    let copyItem = [...copyItems];
+
     if (
-      newItems[btnId].type === "Rate/kg" ||
-      newItems[btnId].type === "Rate/li"
+      newItems[btnIndex].type === "Rate/kg" ||
+      newItems[btnIndex].type === "Rate/li"
     ) {
-      newItems[btnId].quantity = newItems[btnId].quantity + 0.1;
-      newCopyItem[btnId].quantity = newItems[btnId].quantity;
-      newCopyItem[btnId].rate = newItems[btnId].rate;
-    } else if (newItems[btnId].type === "Rate/qty") {
-      newItems[btnId].quantity = newItems[btnId].quantity + 1;
-      newCopyItem[btnId].quantity = newItems[btnId].quantity;
-      newCopyItem[btnId].rate =
-        copyItems[btnId].rate * copyItems[btnId].quantity;
+      newItems[btnIndex].quantity = newItems[btnIndex].quantity + 0.1;
+      newItems[btnIndex].rate = (
+        (newItems[btnIndex].quantity * copyItem[btnId].rate) /
+        1
+      ).toFixed(1);
+      newCalculateItem[btnId].quantity = newItems[btnIndex].quantity;
+      newCalculateItem[btnId].rate = newItems[btnIndex].rate;
+    } else if (newItems[btnIndex].type === "Rate/qty") {
+      newItems[btnIndex].quantity = newItems[btnIndex].quantity + 1;
+      newItems[btnIndex].rate =
+        copyItem[btnId].rate * newItems[btnIndex].quantity;
+      newCalculateItem[btnId].quantity = newItems[btnIndex].quantity;
+      newCalculateItem[btnId].rate = newItems[btnIndex].rate;
     }
-    console.log(newCopyItem[btnId].rate);
     setItems(newItems);
-    setCopyItems(newCopyItem);
+    setCalculateItem(newCalculateItem);
 
     // console.log(items);
   };
   const decrement = (event) => {
     const btnId = parseInt(event.target.dataset.id);
-    let newItems = [...items];
-    let newCopyItem = [...copyItems];
-    if (newItems[btnId].quantity < 0.1) {
-      newItems[btnId].quantity = 0;
+    const btnIndex = parseInt(event.target.dataset.index);
+    console.log(btnId);
+    console.log(btnIndex);
+    let newItems = [...items]; //*? btnIndex
+    let newCalculateItem = [...calculateItem]; //*? btnId
+    let copyItem = [...copyItems];
+
+    if (newItems[btnIndex].quantity < 0.1) {
+      newItems[btnIndex].quantity = 0;
     } else {
       if (
-        newItems[btnId].type === "Rate/kg" ||
-        newItems[btnId].type === "Rate/li"
+        newItems[btnIndex].type === "Rate/kg" ||
+        newItems[btnIndex].type === "Rate/li"
       ) {
-        newItems[btnId].quantity = newItems[btnId].quantity - 0.1;
-        newCopyItem[btnId].quantity = newItems[btnId].quantity;
-        newCopyItem[btnId].rate = newItems[btnId].rate;
-      } else if (newItems[btnId].type === "Rate/qty") {
-        newItems[btnId].quantity = newItems[btnId].quantity - 1;
-        newCopyItem[btnId].quantity = newItems[btnId].quantity;
-        newCopyItem[btnId].rate =
-          copyItems[btnId].rate * copyItems[btnId].quantity;
+        newItems[btnIndex].quantity = newItems[btnIndex].quantity - 0.1;
+        newItems[btnIndex].rate = (
+          (newItems[btnIndex].quantity * copyItem[btnId].rate) /
+          1
+        ).toFixed(1);
+        newCalculateItem[btnId].quantity = newItems[btnIndex].quantity;
+        newCalculateItem[btnId].rate = newItems[btnIndex].rate;
+      } else if (newItems[btnIndex].type === "Rate/qty") {
+        newItems[btnIndex].quantity = newItems[btnIndex].quantity - 1;
+        newItems[btnIndex].rate =
+          copyItem[btnId].rate * newItems[btnIndex].quantity;
+        newCalculateItem[btnId].quantity = newItems[btnIndex].quantity;
+        newCalculateItem[btnId].rate = newItems[btnIndex].rate;
       }
     }
     setItems(newItems);
-    setCopyItems(newCopyItem);
+    setCalculateItem(newCalculateItem);
   };
 
   return (
     <div>
       <div>
-        <Header items={items} setItems={setItems} />
+        <Header items={items} setItems={setItems} setCopyItems={setCopyItems} />
       </div>
       <div className="to-do-main">
         <main>
@@ -143,8 +166,8 @@ function Main(props) {
                         <div className="checkbox">
                           <input
                             type="checkbox"
-                            data-id={index}
-                            id={item.itemName}
+                            data-index={index}
+                            data-id={item._id}
                             name={item.itemName}
                             value={item.itemName}
                             checked={item.currentStatus}
@@ -155,7 +178,8 @@ function Main(props) {
                         <div className="action-input">
                           <button
                             type="button"
-                            data-id={index}
+                            data-index={index}
+                            data-id={item._id}
                             onClick={decrement}
                           >
                             {" "}
@@ -169,7 +193,8 @@ function Main(props) {
                           />
                           <button
                             type="button"
-                            data-id={index}
+                            data-index={index}
+                            data-id={item._id}
                             onClick={increment}
                           >
                             {" "}
@@ -180,7 +205,7 @@ function Main(props) {
                     </div>
                     <div>
                       <p>
-                        {item.type} : {(item.rate * item.quantity).toFixed(1)}
+                        {item.type} : {item.rate}
                       </p>
                     </div>
                   </div>
