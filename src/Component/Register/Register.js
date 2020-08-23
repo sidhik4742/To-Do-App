@@ -3,8 +3,9 @@ import { useHistory } from "react-router";
 import "./Register.css";
 import Axios from "axios";
 
-function Register() {
+function Register(props) {
   const history = useHistory();
+
   const [registerUser, setRegisterUser] = useState({
     userName: "",
     emailOrPhone: "",
@@ -12,7 +13,7 @@ function Register() {
     Cpassword: "",
     model: "",
   });
-  //   console.log(registerUser);
+  console.log(registerUser);
   const modelSelection = (event) => {
     let index = event.target.selectedIndex;
     let optionElement = event.target.childNodes[index].value;
@@ -116,6 +117,9 @@ function Register() {
               </option>
               <option value="stationeryItems" key="1">
                 stationery Items
+              </option>
+              <option value="Custom" key="2">
+                Custom
               </option>
             </select>
           </div>

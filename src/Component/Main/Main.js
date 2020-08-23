@@ -63,8 +63,8 @@ function Main(props) {
   const increment = (event) => {
     const btnId = parseInt(event.target.dataset.id);
     const btnIndex = parseInt(event.target.dataset.index);
-    console.log(btnId);
-    console.log(btnIndex);
+    // console.log(btnId);
+    // console.log(btnIndex);
     let newItems = [...items]; //*? btnIndex
     let newCalculateItem = [...calculateItem]; //*? btnId
     let copyItem = [...copyItems];
@@ -95,8 +95,8 @@ function Main(props) {
   const decrement = (event) => {
     const btnId = parseInt(event.target.dataset.id);
     const btnIndex = parseInt(event.target.dataset.index);
-    console.log(btnId);
-    console.log(btnIndex);
+    // console.log(btnId);
+    // console.log(btnIndex);
     let newItems = [...items]; //*? btnIndex
     let newCalculateItem = [...calculateItem]; //*? btnId
     let copyItem = [...copyItems];

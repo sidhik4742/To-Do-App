@@ -30,12 +30,12 @@
 .creatItemScreen input:focus {
   outline: none;
 }
-.creatItemScreen .rateSelector{
-    font-size: 20px;
-    padding: 20px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+.creatItemScreen .rateSelector {
+  font-size: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .creatItemScreen button {
@@ -48,4 +48,16 @@
   border-color: rgba(20, 7, 7, 0.616);
   background-color: rgba(91, 48, 48, 0.815);
   box-shadow: 5px 10px 8px rgba(91, 48, 48, 0.815);
+}
+
+.creatItemScreen .model {
+  width: auto;
+  position: relative;
+  padding: 5px;
+  margin: 20px;
+  border-style: hidden;
+  background-color: transparent;
+  font-size: 20px;
+  border-bottom: 1px solid black;
+  
 }

@@ -46,7 +46,7 @@ function Login(props) {
       },
     })
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         if (!response.data.auth) {
           alert(response.data.message);
         } else {
@@ -57,7 +57,7 @@ function Login(props) {
             url: "http://localhost:3001/todoapp/display",
           }).then((response) => {
             console.log("success");
-            console.log(response.data);
+            // console.log(response.data);
             const itemList = response.data;
             setItems(itemList);
             sessionStorage.setItem("itemList", JSON.stringify(itemList));

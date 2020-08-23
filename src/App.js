@@ -11,6 +11,7 @@ import Register from "./Component/Register/Register";
 function App() {
   const [state, setState] = useState("");
   const [items, setItems] = useState();
+
   return (
     <div>
       <Router>
@@ -28,10 +29,7 @@ function App() {
           <Footer />
         </Route>
         <Route path="/todoapp/main">
-          <Main
-            items={items}
-            setItems={setItems}
-          />
+          <Main items={items} setItems={setItems} />
           <Footer />
         </Route>
       </Router>

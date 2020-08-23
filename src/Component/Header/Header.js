@@ -32,7 +32,7 @@ function Header(props) {
             setShowHideCreateItem={setShowHideCreateItem}
             setItems={setItems}
             items={items} 
-            setCopyItems={props.setCopyItems}           
+            setCopyItems={props.setCopyItems}          
           />
         )}
       </div>

@@ -3,7 +3,7 @@ import "./ItemCreating.css";
 import Axios from "axios";
 
 function ItemCreating(props) {
-  console.log(props);
+  // console.log(props);
   const items = props.items;
   const setItems = props.setItems;
   const setCopyItems = props.setCopyItems;
@@ -15,17 +15,28 @@ function ItemCreating(props) {
     quantity: 1,
     rate: 0,
     type: "Rate/kg",
+    model: "",
   });
-  console.log(createItem);
+  // console.log(createItem);
   // console.log(items);
+  const modelSelection = (event) => {
+    let index = event.target.selectedIndex;
+    let optionElement = event.target.childNodes[index].value;
+    // console.log(optionElement);
+    setCreateItem({ ...createItem, model: optionElement });
+  };
   const changeHandler = (event) => {
     // let newCreateItem = [...createItem];
     setCreateItem({ ...createItem, [event.target.name]: event.target.value });
   };
   const createItems = (event) => {
     event.preventDefault();
-    if (createItem.itemName !== "" && createItem.rate !== 0) {
-      console.log("item created button");
+    if (
+      createItem.itemName !== "" &&
+      createItem.rate !== 0 &&
+      createItem.model !== ""
+    ) {
+      // console.log("item created button");
       setItems([...items, createItem]);
       setShowHideCreateItem(false);
       Axios({
@@ -33,18 +44,19 @@ function ItemCreating(props) {
         url: "http://localhost:3001/todoapp/main/addItem",
         data: createItem,
       }).then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         Axios({
           method: "get",
           url: "http://localhost:3001/todoapp/display",
         })
           .then((response) => {
             console.log("success");
-            console.log(response.data);
+            // console.log(response.data);
             const itemList = response.data;
             setItems(itemList);
             setCopyItems(itemList);
             sessionStorage.setItem("itemList", JSON.stringify(itemList));
+            alert("Successfully added to your list")
           })
           .catch((error) => {
             console.log(error);
@@ -78,6 +90,19 @@ function ItemCreating(props) {
             value={createItem.rate}
             onChange={changeHandler}
           />
+        </div>
+        <div>
+          <select className="model" onChange={modelSelection}>
+            <option value="" key="0">
+              Choose model...
+            </option>
+            <option value="stationeryItems" key="1">
+              stationery Items
+            </option>
+            <option value="Custom" key="2">
+              Custom
+            </option>
+          </select>
         </div>
         <button onClick={createItems}>Create</button>
       </form>
