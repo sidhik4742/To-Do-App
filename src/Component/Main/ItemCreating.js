@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router";
 import "./ItemCreating.css";
 import Axios from "axios";
 
 function ItemCreating(props) {
   // console.log(props);
+  const history = useHistory();
   const items = props.items;
   const setItems = props.setItems;
   const setCopyItems = props.setCopyItems;
@@ -57,6 +59,8 @@ function ItemCreating(props) {
             setCopyItems(itemList);
             sessionStorage.setItem("itemList", JSON.stringify(itemList));
             alert("Successfully added to your list")
+            history.push("/todoapp/main");
+
           })
           .catch((error) => {
             console.log(error);
