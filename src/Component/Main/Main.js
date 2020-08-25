@@ -151,6 +151,10 @@ function Main(props) {
               </div>
             </form>
           </div>
+          <div>
+            <i className="fa fa-chevron-circle-right" aria-hidden="true"></i>
+            <i className="fa fa-chevron-circle-left" aria-hidden="true"></i>
+          </div>
           <div className="item-list">
             <ul>
               {items.map((item, index) => (

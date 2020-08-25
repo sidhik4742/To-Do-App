@@ -19,7 +19,10 @@
     margin-top: 2rem;
     width: 35vw;
     box-shadow: 5px 15px 8px rgba(53, 3, 3, 0.548);
-    
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-image: radial-gradient(circle ,rgb(252, 0, 0),rgb(10, 10, 10));
 }
 .search-item span{
     display: flex;
