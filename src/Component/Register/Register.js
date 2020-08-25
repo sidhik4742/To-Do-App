@@ -13,7 +13,7 @@ function Register(props) {
     Cpassword: "",
     model: "",
   });
-  console.log(registerUser);
+  // console.log(registerUser);
   const modelSelection = (event) => {
     let index = event.target.selectedIndex;
     let optionElement = event.target.childNodes[index].value;
