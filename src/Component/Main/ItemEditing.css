@@ -6,13 +6,20 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
   padding: 1rem;
   border-radius: 10px;
 }
 
+.editItemScreen .closeBtn i {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: rgba(112, 12, 12, 0.815);
+  font-weight: lighter;
+}
+
 .editItemScreen label {
-    font-size: 20px;
+  font-size: 20px;
 }
 .editItemScreen input {
   width: auto;
@@ -24,15 +31,15 @@
   font-size: 20px;
   border-bottom: 1px solid black;
   color: white;
-
 }
-.editItemScreen .itemname input{
-    color: gray;
+.editItemScreen .itemname input {
+  color: gray;
 }
 .editItemScreen input:focus {
   outline: none;
 }
 .editItemScreen button {
+  color: white;
   margin: 1rem 0 1rem 0;
   padding: 5px;
   padding-left: 2rem;

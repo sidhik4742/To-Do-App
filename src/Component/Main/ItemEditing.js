@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./ItemEditing.css";
 
 function ItemEditing(props) {
@@ -9,6 +9,10 @@ function ItemEditing(props) {
   const items = props.items;
   const setShowHide = props.setShowHide;
   //   console.log(selectItem);
+
+  const navbarColse = () => {
+    setShowHide(false); //*?Hide pop up screen in the main.js //
+  };
 
   const savedItems = (event) => {
     event.preventDefault();
@@ -25,6 +29,13 @@ function ItemEditing(props) {
   };
   return (
     <div className="editItemScreen">
+      <div className="closeBtn">
+        <i
+          className="fa fa-times fa-1x"
+          aria-hidden="true"
+          onClick={navbarColse}
+        ></i>
+      </div>
       <form>
         <div className="itemname">
           <label>Item Name</label>

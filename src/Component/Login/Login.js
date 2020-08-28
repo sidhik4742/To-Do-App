@@ -6,7 +6,6 @@ import "./Login.css";
 
 function Login(props) {
   const history = useHistory();
-  const items = props.items;
   const setItems = props.setItems;
 
   // console.log(items);

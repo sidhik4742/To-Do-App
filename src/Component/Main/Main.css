@@ -1,57 +1,58 @@
-.to-do-main{
- display: flex;
- justify-content: center;
- position: relative;
- color: whitesmoke;
- font-size: larger;
+.to-do-main {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  color: whitesmoke;
+  font-size: larger;
 }
 
-.to-do-main .creatItem{
-    position: fixed;
-    top: 5px;
-    right: 5px;
+.to-do-main .creatItem {
+  position: fixed;
+  top: 5px;
+  right: 5px;
 }
-.to-do-main .search-item{
-    border: 1px solid rgba(53, 3, 3, 0.548);
-    border-radius: 5px;
-    padding: 1rem;
-    margin-bottom: 2rem;
-    margin-top: 2rem;
-    width: 35vw;
-    box-shadow: 5px 15px 8px rgba(53, 3, 3, 0.548);
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    background-image: radial-gradient(circle ,rgb(252, 0, 0),rgb(10, 10, 10));
+.to-do-main .search-item {
+  border: 1px solid rgba(53, 3, 3, 0.548);
+  border-radius: 5px;
+  padding: 1rem;
+  margin-bottom: 4rem;
+  margin-top: 2rem;
+  width: 35vw;
+  box-shadow: 5px 15px 8px rgba(53, 3, 3, 0.548);
+  position: sticky;
+  top: 69px;
+  z-index: 1;
+  background-image: radial-gradient(circle, rgb(252, 0, 0), rgb(10, 10, 10));
 }
-.search-item span{
-    display: flex;
-    justify-content: center;
+.search-item span {
+  display: flex;
+  justify-content: center;
 }
-.search-item i{
-    color: rgba(255, 255, 255, 0.836);
-    /* position: absolute;
+.search-item i {
+  color: rgba(255, 255, 255, 0.836);
+  /* position: absolute;
     top: 24px;
-*/}
+*/
+}
 
 .search-item input {
-    font-size: larger;
-    height: 25px;
-    width: auto;
-    display: block;
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.692);
-    
-    /* margin-left: 1.9rem; */
+  font-size: larger;
+  height: 25px;
+  width: auto;
+  display: block;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.692);
+
+  /* margin-left: 1.9rem; */
 }
-.search-item input:focus{
-    outline: none;
+.search-item input:focus {
+  outline: none;
 }
-.search-item input::placeholder{
-    color: whitesmoke;
+.search-item input::placeholder {
+  color: whitesmoke;
 }
-.search-item button{
+/* .search-item button{
     margin-top: 1rem;
     display: block;
     margin-left: auto;
@@ -59,81 +60,142 @@
     padding: 0.5em;
     background-color: rgba(53, 3, 3, 0.548);
     
-}
-.item-list ul{
-    list-style-type: none;
-}
-
-.item-details{
-    border: 1px solid rgba(53, 3, 3, 0.548);
-    padding: 5px;
-    border-radius: 5px;
-    margin-bottom: 2rem;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
-    box-shadow: 5px 15px 8px rgba(53, 3, 3, 0.548);
-    /* color: rgba(255, 255, 255, 0.719); */
-
-}
-.item-details:hover{
-    transform: translateY(-6px);
-}
-.item-details .action{
-    margin: 0;
-    margin-bottom: 10px;
+} */
+/* .to-do-main .arrowIcon{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 35vw;   
+    color: rgba(90, 5, 5, 0.89);
+    margin-bottom: 2rem;
+    position: sticky;
+    top: 70px;
+} */
 
+.item-list ul {
+  list-style-type: none;
 }
 
-.action-input{
-    margin-left: 1rem;
+.item-details .action :nth-child(1){
+  cursor: pointer;
+}
+.item-details .rate{
+  cursor: default;
 }
 
-.action button{
-    background-color: rgba(90, 5, 5, 0.89);
-    border-radius: 5px;
-    margin: 5px;
-    padding: 5px;
-    color: whitesmoke;
+.item-details {
+  border: 1px solid rgba(53, 3, 3, 0.548);
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+  transition: 0.3s ease-in-out;
+  box-shadow: 5px 15px 8px rgba(53, 3, 3, 0.548);
+  /* color: rgba(255, 255, 255, 0.719); */
 }
-.action input{
-    color: whitesmoke;
-    background-color: transparent;
-    width: 2rem;
-    padding: 2px;
-    border: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.712);   
+.item-details:hover {
+  transform: translateY(-6px);
+}
+.item-details .action {
+  margin: 0;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 35vw;
 }
 
-.action input:focus{
-    outline: none;
+.action-input {
+  margin-left: 1rem;
 }
 
+.action button {
+  background-color: rgba(90, 5, 5, 0.89);
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+  color: whitesmoke;
+}
+.action input {
+  color: whitesmoke;
+  background-color: transparent;
+  width: 2rem;
+  padding: 2px;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.712);
+}
+
+.action input:focus {
+  outline: none;
+}
+
+.main .calculatedItem {
+  background-color: rgb(9, 9, 9);
+  width: 100vw;
+  height: auto;
+  position: fixed;
+  bottom: 0;
+}
+.calculatedItem button {
+  padding: 10px;
+  width: max-content;
+  border-radius: 10px;
+  outline: none;
+  margin: 1rem;
+  display: block;
+  margin-left: 50%;
+  margin-right: 50%;
+  transform: translate(-50%);
+  font-size: larger;
+  font-weight: bold;
+}
+.calculatedItem button a{
+    text-decoration: none;
+    color: black;
+}
 
 @media screen and (max-width: 411px) {
-    .to-do-main .search-item{
-        width: 19rem;
-    }
-    .item-details .action{
-        display: flex;
-        position: relative;
-        align-items: baseline;
-    }
-    .item-details .action .action-input{
-        display: flex;
-        justify-content: center; 
-        align-items: center;
-        position: absolute;
-        left: 11rem;
-    } 
-    .item-details .action .checkbox{
-        position: absolute;
-        top: 18px;
-        left: 255px;
-    }
-    
+  .to-do-main .search-item {
+    position: sticky;
+    top: 58px;
+    width: 19rem;
+    margin-bottom: 47px;
+  }
+  .item-details .action {
+    display: flex;
+    position: relative;
+    align-items: baseline;
+  }
+  .item-details .action .action-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 11rem;
+  }
+  .item-details .action .checkbox {
+    position: absolute;
+    top: 18px;
+    left: 255px;
+  }
+  .main .calculatedItem {
+    background-color: rgb(9, 9, 9);
+    width: 100vw;
+    height: auto;
+    position: fixed;
+    bottom: 0;
+  }
 
+  .calculatedItem button {
+    padding: 10px;
+    width: max-content;
+    border-radius: 10px;
+    outline: none;
+    margin: 1rem;
+    display: block;
+    margin-left: 50%;
+    margin-right: 50%;
+    transform: translate(-50%);
+    font-size: larger;
+    font-weight: bold;
+  }
+ 
 }

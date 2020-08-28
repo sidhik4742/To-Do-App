@@ -10,7 +10,7 @@ function ItemCreating(props) {
   const setItems = props.setItems;
   const setCopyItems = props.setCopyItems;
   const setShowHideCreateItem = props.setShowHideCreateItem;
-  const [rateType, setRateType] = useState("Rate/kg");
+  // const [rateType, setRateType] = useState("Rate/kg");
   const [createItem, setCreateItem] = useState({
     currentStatus: false,
     itemName: "",
@@ -21,6 +21,11 @@ function ItemCreating(props) {
   });
   // console.log(createItem);
   // console.log(items);
+
+  const navbarColse = () => {
+    setShowHideCreateItem(false); //*?Hide pop up screen in the main.js //
+  };
+
   const modelSelection = (event) => {
     let index = event.target.selectedIndex;
     let optionElement = event.target.childNodes[index].value;
@@ -40,7 +45,7 @@ function ItemCreating(props) {
     ) {
       // console.log("item created button");
       setItems([...items, createItem]);
-      setShowHideCreateItem(false);
+      setShowHideCreateItem(false);  //*?Hide pop up screen in the main.js //
       Axios({
         method: "put",
         url: "http://localhost:3001/todoapp/main/addItem",
@@ -58,9 +63,8 @@ function ItemCreating(props) {
             setItems(itemList);
             setCopyItems(itemList);
             sessionStorage.setItem("itemList", JSON.stringify(itemList));
-            alert("Successfully added to your list")
+            alert("Successfully added to your list");
             history.push("/todoapp/main");
-
           })
           .catch((error) => {
             console.log(error);
@@ -70,6 +74,13 @@ function ItemCreating(props) {
   };
   return (
     <div className="creatItemScreen">
+      <div className="closeBtn">
+        <i
+          className="fa fa-times fa-1x"
+          aria-hidden="true"
+          onClick={navbarColse}
+        ></i>
+      </div>
       <form>
         <div className="itemname">
           <label>Item Name</label>
@@ -87,7 +98,7 @@ function ItemCreating(props) {
           <input type="radio" value="Rate/li" name="type" /> Rate/li
         </div>
         <div className="rate">
-          <label>{rateType} in Rs</label>
+          <label>{createItem.type} in Rs</label>
           <input
             type="text"
             name="rate"

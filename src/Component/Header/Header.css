@@ -6,7 +6,14 @@ div.header {
   position: sticky;
   position: -webkit-sticky;
   top: 10px;
-  background-color: rgba(9, 9, 9, 0.6);
+  background-color: rgb(9, 9, 9);
+  width: 100%;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill-available;
+  position: fixed;
+  top: 0;
+  z-index: 1;
 }
 .header .menu {
   display: flex;
@@ -32,8 +39,7 @@ div.header {
   cursor: pointer;
 }
 
-
-@media screen and (max-width: 411px) {
+@media screen and (max-width: 415px) {
   .header .navicon,
   .header .creatItem {
     display: block;
@@ -46,9 +52,14 @@ div.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(9, 9, 9, 0.842);
-    position: sticky !important;
+    background-color: rgb(9, 9, 9);
+    width: 100%;
+    width: -webkit-fill-available;
+    width: -moz-available;
+    width: fill-available;
+    position: fixed;
     top: 0;
+    z-index: 1;
   }
 
   .header .navicon {
@@ -57,8 +68,8 @@ div.header {
     color: rgba(112, 12, 12, 0.815);
     margin: 5px;
   }
-  .header .navicon:active{
-    color: rgba(187, 20, 20, 0.80);
+  .header .navicon:active {
+    color: rgba(187, 20, 20, 0.8);
   }
 
   .header .creatItem {
@@ -67,7 +78,7 @@ div.header {
     color: rgba(112, 12, 12, 0.815);
     margin: 5px;
   }
-  .header .creatItem:active{
-    color: rgba(187, 20, 20, 0.80)
+  .header .creatItem:active {
+    color: rgba(187, 20, 20, 0.8);
   }
 }

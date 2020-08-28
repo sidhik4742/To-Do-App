@@ -1,0 +1,53 @@
+.checkout .itemTable {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  /* transform: translate(-50%); */
+  display: block;
+  margin: 15px;
+}
+
+.itemTable table {
+  color: whitesmoke;
+}
+
+td {
+  padding: 10px 3px 10px 3px;
+  font-weight: bolder;
+  font-size: 20px;
+  text-align: center;
+}
+
+.checkout .totalRate {
+  padding: 15px;
+  background-color: rgb(9, 9, 9);
+  width: 100vw;
+  height: auto;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkout .totalRate label {
+  color: whitesmoke;
+  font-size: xx-large;
+  font-weight: bolder;
+}
+
+.checkout .totalRate button {
+  padding: 10px;
+  width: max-content;
+  border-radius: 10px;
+  outline: none;
+  /* margin: 1rem; */
+  display: block;
+  font-size: larger;
+  font-weight: bold;
+}
+.checkout .totalRate span{
+    color: whitesmoke;
+    font-size: 26px;
+    font-weight: bolder;
+}

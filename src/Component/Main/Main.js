@@ -1,24 +1,33 @@
-import React, { useState } from "react";
-import login from "../Login/Login";
+import React, { useState, useEffect } from "react";
 import "./Main.css";
 import ItemEditing from "./ItemEditing";
 import Header from "../Header/Header";
+import { Link } from "react-router-dom";
 
 function Main(props) {
   const items = props.items || JSON.parse(sessionStorage.getItem("itemList"));
   const setItems = props.setItems;
+  const calculateItem = props.calculateItem;
+  const setCalculateItem = props.setCalculateItem;
+
   const [copyItems, setCopyItems] = useState(
     JSON.parse(sessionStorage.getItem("itemList"))
   );
 
-  const [calculateItem, setCalculateItem] = useState(
-    JSON.parse(sessionStorage.getItem("itemList"))
-  );
+  useEffect(() => {
+    setCalculateItem(JSON.parse(sessionStorage.getItem("itemList")));
+  }, []);
+
+  // const [calculateItem, setCalculateItem] = useState(
+  //   JSON.parse(sessionStorage.getItem("itemList"))
+  // );
+
   const [searchItem, setSearchItem] = useState("");
   const [selectItem, setSelectItem] = useState();
   const [showHide, setShowHide] = useState(false);
+  const [currentStatusFlag, setCurrentStatusFlag] = useState(false);
 
-  // console.log(items);
+  // console.log(ite[ms);
   // console.log(copyItems);
   // console.log(calculateItem);
   const editItemFun = (event) => {
@@ -44,6 +53,7 @@ function Main(props) {
     newCalculateItem[checkedId].currentStatus = event.target.checked;
     setItems(newItems);
     setCalculateItem(newCalculateItem);
+    setCurrentStatusFlag(true);
   };
   const changeHandler = (event) => {
     let searchData = event.target.value;
@@ -128,7 +138,7 @@ function Main(props) {
   };
 
   return (
-    <div>
+    <div className="main">
       <div>
         <Header items={items} setItems={setItems} setCopyItems={setCopyItems} />
       </div>
@@ -150,10 +160,6 @@ function Main(props) {
                 </span>
               </div>
             </form>
-          </div>
-          <div>
-            <i className="fa fa-chevron-circle-right" aria-hidden="true"></i>
-            <i className="fa fa-chevron-circle-left" aria-hidden="true"></i>
           </div>
           <div className="item-list">
             <ul>
@@ -207,7 +213,7 @@ function Main(props) {
                         </div>
                       )}
                     </div>
-                    <div>
+                    <div className="rate">
                       <p>
                         {item.type} : {item.rate}
                       </p>
@@ -229,6 +235,19 @@ function Main(props) {
             )}
           </div>
         </main>
+      </div>
+      <div className="calculatedItem">
+        <div>
+          {!currentStatusFlag ? (
+            <button type="button" style={{ display: "none" }}>
+              <Link to="/todoapp/checkout">Proceed to check Out</Link>
+            </button>
+          ) : (
+            <button type="button" style={{ display: "block" }}>
+              <Link to="/todoapp/checkout">Proceed to check Out</Link>
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
