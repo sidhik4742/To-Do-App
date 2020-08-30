@@ -20,28 +20,13 @@
 }
 
 .form .img-div {
-  width: 120px;
-  height: 120px;
-  background-position: center;
-  background-size: 100%;
-  border: 1px solid black;
-  border-radius: 50%;
-  cursor: pointer;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1rem;
+  
 }
 .img-div img {
-  height: 120px;
-  width: 120px;
-  border-radius: 50%;
-  content: "Upload photo";
+ 
 }
 
-.img-div:hover {
-  opacity: 0.5;
-  filter: blur(2px);
-}
+
 
 .form input {
   position: relative;
@@ -104,8 +89,8 @@
 .temsService p,
 span {
   color: rgba(39, 13, 13, 0.815);
-  font-size: medium !important;
-  font-weight: 200 !important;
+  font-size: medium;
+  font-weight: 200;
 }
 .temsService a {
   text-decoration: none;

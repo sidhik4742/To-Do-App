@@ -75,26 +75,6 @@ function Login(props) {
           <div>
             <h1>Login Page</h1>
           </div>
-          <div className="img-div">
-            <label htmlFor="uploadImage">
-              <img
-                className="image"
-                // onClick={profilePicture}
-                src={
-                  profilePic
-                    ? profilePic
-                    : "https://cdn2.f-cdn.com/contestentries/1316431/24595406/5ae8a3f2e4e98_thumb900.jpg"
-                }
-                alt=""
-              />
-            </label>
-            <input
-              type="file"
-              id="uploadImage"
-              onChange={uploadImage}
-              style={{ display: "none" }}
-            />
-          </div>
           <div>
             <span>
               <i className="fa fa-user fa-2x" aria-hidden="true"></i>

@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
 import "./Register.css";
+import  personIcon from "../../images/person.png"
 import Axios from "axios";
 
 function Register(props) {
   const history = useHistory();
 
+  const profilePic = props.profilePic;
+  const setProfilePic = props.setProfilePic;
   const [registerUser, setRegisterUser] = useState({
     userName: "",
     emailOrPhone: "",
@@ -14,6 +17,15 @@ function Register(props) {
     model: "",
   });
   // console.log(registerUser);
+
+  const uploadImage = (event) => {
+    console.log("Upload image");
+    let type = event.target.files[0].type;
+    if (type === "image/jpeg" || type === "image/jpg") {
+      setProfilePic(URL.createObjectURL(event.target.files[0]));
+    }
+  };
+
   const modelSelection = (event) => {
     let index = event.target.selectedIndex;
     let optionElement = event.target.childNodes[index].value;
@@ -62,6 +74,26 @@ function Register(props) {
         <form className="registerForm" onSubmit={submitButton}>
           <div>
             <h1>Register Page</h1>
+          </div>
+          <div className="img-div">
+            <label htmlFor="uploadImage">
+              <img
+                className="image"
+                // onClick={profilePicture}
+                src={
+                  profilePic
+                    ? profilePic
+                    : personIcon
+                }
+                alt=""
+              />
+            </label>
+            <input
+              type="file"
+              id="uploadImage"
+              onChange={uploadImage}
+              style={{ display: "none" }}
+            />
           </div>
           <div>
             <span>

@@ -1,0 +1,33 @@
+.savedlist {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  display: block;
+  margin-right: 20px;
+}
+
+.savedlist .itemDiv .head {
+  width: 100vw;
+  height: 66px;
+  background-color: rgba(53, 3, 3, 0.548);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.savedlist .itemDiv .head label {
+  font-size: larger;
+  font-weight: bolder;
+  color: whitesmoke;
+  padding: 15px;
+}
+
+.savedlist .itemDiv .head i {
+  color: whitesmoke;
+  padding: 15px;
+}
+
+.savedlist .itemDiv .body{
+    width: 100vw;
+    height: 500px;
+    display: none;
+}

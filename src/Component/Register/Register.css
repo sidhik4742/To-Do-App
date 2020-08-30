@@ -1,5 +1,5 @@
 .registerComponent {
-  height: 100vh;
+  margin-top: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,6 +13,38 @@
 .registerForm {
   padding: 1rem;
 }
+.img-div {
+  width: 120px;
+  height: 120px;
+  background-position: center;
+  background-size: 100%;
+  border: 1px solid black;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 20px auto 20px auto;
+  animation: personIcon 3s;
+}
+.img-div img {
+  background-color: black;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+}
+
+.img-div:hover {
+  opacity: 0.5;
+  filter: blur(2px);
+}
+
+@keyframes personIcon {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .registerForm h1 {
   text-align: center;
   margin: 10px;
@@ -33,18 +65,18 @@
 .registerForm input::placeholder {
   color: rgba(170, 22, 22, 0.664);
 }
-.registerForm .model{
-    position: relative;
-    padding: 5px;
-    margin: 5px;
-    background-color: transparent;
-    border-style: hidden;
-    border-color: transparent;
-    font-size: 1.5em;
-    width: 285px;
+.registerForm .model {
+  position: relative;
+  padding: 5px;
+  margin: 5px;
+  background-color: transparent;
+  border-style: hidden;
+  border-color: transparent;
+  font-size: 1.5em;
+  width: 285px;
 }
-.registerForm .model select:active{
-    outline: none;
+.registerForm .model select:active {
+  outline: none;
 }
 .registerForm .btn-div {
   text-align: center;
@@ -73,15 +105,13 @@
 }
 
 @media only screen and (max-width: 576px) {
-    .registerForm input {
-      width: 15rem !important;
-    }
-    .registerForm{
-      width: 20rem;
-    }
-    .registerForm .model{
-      width: 230px;
-      
-    }
-    
+  .registerForm input {
+    width: 15rem !important;
   }
+  .registerForm {
+    width: 20rem;
+  }
+  .registerForm .model {
+    width: 230px;
+  }
+}

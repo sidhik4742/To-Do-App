@@ -25,14 +25,22 @@ function Header(props) {
   };
   return (
     <div>
-      <div>{navbar && <Navbar setNavbar={setNavbar} />}</div>
+      <div>
+        {navbar && (
+          <Navbar
+            setNavbar={setNavbar}
+            profilePic={props.profilePic}
+            setProfilePic={props.setProfilePic}
+          />
+        )}
+      </div>
       <div>
         {showHideCreateItem && (
           <ItemCreating
             setShowHideCreateItem={setShowHideCreateItem}
             setItems={setItems}
-            items={items} 
-            setCopyItems={props.setCopyItems}          
+            items={items}
+            setCopyItems={props.setCopyItems}
           />
         )}
       </div>

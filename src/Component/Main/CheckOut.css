@@ -18,25 +18,35 @@ td {
   text-align: center;
 }
 
-.checkout .totalRate {
+.checkout .checkoutFooter {
   padding: 15px;
   background-color: rgb(9, 9, 9);
   width: 100vw;
   height: auto;
   position: fixed;
   bottom: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
-.checkout .totalRate label {
+.checkout .checkoutFooter .totalRate {
+  margin: 10px 0 10px 0;
+  text-align: center;
+  text-align: -webkit-center;
+  text-align: -moz-center;
+}
+
+.checkout .checkoutFooter .totalRate label {
   color: whitesmoke;
   font-size: xx-large;
   font-weight: bolder;
 }
 
-.checkout .totalRate button {
+.checkout .checkoutFooter .actionBtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkout .checkoutFooter .actionBtn button {
   padding: 10px;
   width: max-content;
   border-radius: 10px;
@@ -46,8 +56,8 @@ td {
   font-size: larger;
   font-weight: bold;
 }
-.checkout .totalRate span{
-    color: whitesmoke;
-    font-size: 26px;
-    font-weight: bolder;
+.checkout .checkoutFooter .totalRate span {
+  color: whitesmoke;
+  font-size: 26px;
+  font-weight: bolder;
 }

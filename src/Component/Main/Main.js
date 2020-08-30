@@ -7,14 +7,17 @@ import { Link } from "react-router-dom";
 function Main(props) {
   const items = props.items || JSON.parse(sessionStorage.getItem("itemList"));
   const setItems = props.setItems;
+  const copyItems = props.copyItems;
+  const setCopyItems = props.setCopyItems;
   const calculateItem = props.calculateItem;
   const setCalculateItem = props.setCalculateItem;
 
-  const [copyItems, setCopyItems] = useState(
-    JSON.parse(sessionStorage.getItem("itemList"))
-  );
+  // const [copyItems, setCopyItems] = useState(
+  //   JSON.parse(sessionStorage.getItem("itemList"))
+  // );
 
   useEffect(() => {
+    setCopyItems(JSON.parse(sessionStorage.getItem("itemList")));
     setCalculateItem(JSON.parse(sessionStorage.getItem("itemList")));
   }, []);
 
@@ -27,7 +30,7 @@ function Main(props) {
   const [showHide, setShowHide] = useState(false);
   const [currentStatusFlag, setCurrentStatusFlag] = useState(false);
 
-  // console.log(ite[ms);
+  // console.log(items);
   // console.log(copyItems);
   // console.log(calculateItem);
   const editItemFun = (event) => {
@@ -139,9 +142,9 @@ function Main(props) {
 
   return (
     <div className="main">
-      <div>
+      {/* <div>
         <Header items={items} setItems={setItems} setCopyItems={setCopyItems} />
-      </div>
+      </div> */}
       <div className="to-do-main">
         <main>
           <div className="search-item">
@@ -239,9 +242,7 @@ function Main(props) {
       <div className="calculatedItem">
         <div>
           {!currentStatusFlag ? (
-            <button type="button" style={{ display: "none" }}>
-              <Link to="/todoapp/checkout">Proceed to check Out</Link>
-            </button>
+            <button type="button" style={{ display: "none" }}></button>
           ) : (
             <button type="button" style={{ display: "block" }}>
               <Link to="/todoapp/checkout">Proceed to check Out</Link>

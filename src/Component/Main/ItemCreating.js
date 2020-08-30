@@ -58,7 +58,7 @@ function ItemCreating(props) {
         })
           .then((response) => {
             console.log("success");
-            // console.log(response.data);
+            console.log(response.data);
             const itemList = response.data;
             setItems(itemList);
             setCopyItems(itemList);

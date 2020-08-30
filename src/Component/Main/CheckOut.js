@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./CheckOut.css";
+import Axios from "axios";
+import { useHistory } from "react-router-dom";
 
 function CheckOut(props) {
-  console.log(props);
+  // console.log(props);
+  const history = useHistory();
   const calculateItem = props.calculateItem;
+  const setItems = props.setItems;
   const [listItem, setListItem] = useState([]);
   const [totalRate, setTotalRate] = useState(0);
 
@@ -11,7 +15,7 @@ function CheckOut(props) {
     calculateItem.forEach((item) => {
       if (item.currentStatus) {
         setListItem((listItem) => [...listItem, item]);
-        console.log(item);
+        // console.log(item);
       }
     });
   }, [calculateItem]);
@@ -23,8 +27,37 @@ function CheckOut(props) {
     setTotalRate(totalRate);
   }, [listItem]);
 
+  const cancel = () => {
+    setItems(JSON.parse(sessionStorage.getItem("itemList")));
+    history.push("/todoapp/main");
+  };
+
   const saveList = () => {
-    
+    Axios({
+      method: "put",
+      url: "http://localhost:3001/todoapp/main/savelist",
+      data: {
+        "SavedList": listItem,
+        "TotalRate": totalRate,
+      },
+    })
+      .then((response) => {
+        if (response.status === 200) {
+          alert(response.data);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        if (error.response.status === 401) {
+          alert(error.response.data);
+        }
+      });
+  };
+
+  const checkOut = () => {
+    setItems(JSON.parse(sessionStorage.getItem("itemList")));
+    alert("Thank you for shopping");
+    history.push("/todoapp/main");
   };
 
   const removeItem = (id) => {
@@ -64,12 +97,18 @@ function CheckOut(props) {
           </tbody>
         </table>
       </div>
-      <div className="totalRate">
-        <label>
-          Total : <span>&#x20B9;</span>
-          {totalRate}
-        </label>
-        <button onClick={saveList}>Save list</button>
+      <div className="checkoutFooter">
+        <div className="totalRate">
+          <label>
+            Total : <span>&#x20B9;</span>
+            {totalRate}
+          </label>
+        </div>
+        <div className="actionBtn">
+          <button onClick={cancel}>Cancel</button>
+          <button onClick={saveList}>Save list</button>
+          <button onClick={checkOut}>Checkout</button>
+        </div>
       </div>
     </div>
   );
