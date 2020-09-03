@@ -4,6 +4,8 @@
   left: 0;
   display: block;
   margin-right: 20px;
+  min-height: 100vh;
+  max-height: fit-content;
 }
 
 .savedlist .itemDiv .head {
@@ -21,13 +23,40 @@
   padding: 15px;
 }
 
-.savedlist .itemDiv .head i {
+.savedlist .itemDiv .head .scaleUp {
   color: whitesmoke;
   padding: 15px;
+  display: block;
 }
 
-.savedlist .itemDiv .body{
-    width: 100vw;
-    height: 500px;
-    display: none;
+.savedlist .itemDiv .head .icon {
+  transition: all 5s ease-in-out;
+  transform: rotateY(180deg);
+}
+
+.savedlist .itemDiv .head .scaleDown {
+  color: whitesmoke;
+  padding: 15px;
+  display: none;
+}
+
+.savedlist .itemDiv .showbody {
+  width: 100vw;
+  height: auto;
+  display: none;
+}
+
+.footer_saveList {
+  background-color: black;
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  color: whitesmoke;
+  display: flex;
+  align-items: center;
+  width: -webkit-fill-available;
+  width: 100vw;
+}
+.footer_saveList i{
+  margin-left: 10px;
 }
